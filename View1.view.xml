@@ -1,0 +1,23 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp.View1"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<l:VerticalLayout
+		class="sapUiContentPadding"
+		width="100%">
+		<l:content>
+<List
+	headerText  = "People Details"
+	mode        = "SingleSelect"
+	includeItemInSelection = "true"
+	items = 	"{/}"
+	>
+	<StandardListItem
+			title="{b}"
+			/>
+	</List>
+		
+		</l:content>
+	</l:VerticalLayout>
+</mvc:View>

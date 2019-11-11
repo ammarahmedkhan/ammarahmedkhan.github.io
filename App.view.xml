@@ -2,6 +2,7 @@
 	controllerName="sap.m.sample.sampleapp.App"
 	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
 	xmlns="sap.m">
 	<l:VerticalLayout
 		class="sapUiContentPadding"
@@ -10,13 +11,14 @@
 	<IconTabBar>
 	<items>
 	<IconTabFilter text = "First tab">
-	<List
-	headerText  = "People Details"
-	mode        = "SingleSelect"
-	/>
+	<mvc:XMLView viewName="sap.m.sample.sampleapp.View1"/>
 	</IconTabFilter>
-	<IconTabFilter text = "second tab"/>
-	<IconTabFilter text = "third tab"/>
+	<IconTabFilter text = "second tab">
+	<mvc:XMLView viewName="sap.m.sample.sampleapp.View2"/>
+	</IconTabFilter>
+	<IconTabFilter text = "third tab">
+	<mvc:XMLView viewName="sap.m.sample.sampleapp.View3"/>
+	</IconTabFilter>
 	<IconTabFilter text = "fourth tab"/>
 	</items>
 	</IconTabBar>
