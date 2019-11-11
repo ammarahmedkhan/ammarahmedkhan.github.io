@@ -1,0 +1,24 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp.App"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<l:VerticalLayout
+		class="sapUiContentPadding"
+		width="100%">
+	
+	<IconTabBar>
+	<items>
+	<IconTabFilter text = "First tab">
+	<List
+	headerText  = "People Details"
+	mode        = "SingleSelect"
+	/>
+	</IconTabFilter>
+	<IconTabFilter text = "second tab"/>
+	<IconTabFilter text = "third tab"/>
+	<IconTabFilter text = "fourth tab"/>
+	</items>
+	</IconTabBar>
+	</l:VerticalLayout>
+</mvc:View>
