@@ -35,11 +35,16 @@ sap.ui.define([
 			oView = this.getView();
 			oView.setModel(jsonModel);
 			
+			
+			var oView = this.getView();
 		}
 		
 
 	});
-
+//https://sapui5.hana.ondemand.com/1.34.9/docs/guide/df8c9c3d79b54c928855162bafcd88ee.html
 	return sampleappController ;
 
 });
+
+
+//https://api.myjson.com/bins/16u9mq

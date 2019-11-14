@@ -19,7 +19,9 @@
 	<IconTabFilter text = "third tab">
 	<mvc:XMLView viewName="sap.m.sample.sampleapp.View3"/>
 	</IconTabFilter>
-	<IconTabFilter text = "fourth tab"/>
+	<IconTabFilter text = "fourth tab">
+	<mvc:XMLView viewName="sap.m.sample.sampleapp.View4"/>
+	</IconTabFilter>
 	</items>
 	</IconTabBar>
 	</l:VerticalLayout>
