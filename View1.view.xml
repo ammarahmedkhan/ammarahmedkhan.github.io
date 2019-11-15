@@ -9,12 +9,14 @@
 		<l:content>
 <List
 	headerText  = "People Details"
-	mode        = "SingleSelect"
-	includeItemInSelection = "true"
+	
+	
 	items = 	"{/}"
 	>
 	<StandardListItem
 			title="{b}"
+			type ="Active"
+			press="press"
 			/>
 	</List>
 		
