@@ -11,7 +11,8 @@ sap.ui.define([
 		onInit : function() {
 			//MessageToast.show("eee");
 			// set explored app's demo model on this sample
-			var oModel = new JSONModel("http://dummy.restapiexample.com/api/v1/employees");
+			//var oModel = new JSONModel("http://dummy.restapiexample.com/api/v1/employees");
+			var oModel = new JSONModel("https://reqres.in/api/users");
 			//var oModel=new JSONModel();
 			var data= {"d" : [{"id":"1","employee_name":"Umair3","employee_salary":"0","employee_age":"0","profile_image":""},
 			{"id":"96665","employee_name":"Kamila","employee_salary":"500","employee_age":"23","profile_image":""},

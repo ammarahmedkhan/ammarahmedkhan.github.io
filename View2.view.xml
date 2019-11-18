@@ -2,10 +2,11 @@
 	controllerName="sap.m.sample.sampleapp.View2"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
 	xmlns="sap.m">	
 	<Table id="idProductsTable"
 		inset="false"
-		items="{/}">
+		items="{/data}">
 		<headerToolbar>
 			<OverflowToolbar>
 				<content>
@@ -38,13 +39,15 @@
 		</headerToolbar>
 		<infoToolbar>
 			<OverflowToolbar>
-				<Label text="Employees list available from link http://dummy.restapiexample.com/api/v1/employees"/>
+				<Label text="With special thanks to https://reqres.in/ for providing the RESTful data"/>
 			</OverflowToolbar>
 		</infoToolbar>
 		<columns>
 			<Column
-				width="12em">
-				<Text text="ID" />
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Employee photo" />
 			</Column>
 			<Column
 				minScreenWidth="Tablet"
@@ -55,29 +58,35 @@
 				minScreenWidth="Desktop"
 				demandPopin="true"
 				hAlign="End">
-				<Text text="Employee Age" />
+				<Text text="Employee Email" />
 			</Column>
+
+			
 			<Column
-				minScreenWidth="Desktop"
-				demandPopin="true"
-				hAlign="Center">
-				<Text text="Employee Salary" />
+				width="12em">
+				<Text text="ID" />
 			</Column>
 			
 		</columns>
 		<items>
 			<ColumnListItem>
 				<cells>
-					<ObjectIdentifier
+					<f:Avatar
+						src="{avatar}"
+						displaySize="M"
+						displayShape="Square"
+						showBorder="true">
+					</f:Avatar>
+					<Text
+						text="{first_name}" />
+					<Text
+						text="{email}" />
+
+					
+										<ObjectIdentifier
 						title="{id}"
 						/>
-					<Text
-						text="{employee_name}" />
-					<Text
-						text="{employee_age}" />
-					<ObjectNumber
-						number="{employee_salary}"
-						 />
+						 
 				</cells>
 			</ColumnListItem>
 		</items>

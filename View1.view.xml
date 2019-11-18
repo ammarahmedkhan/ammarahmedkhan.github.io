@@ -16,7 +16,7 @@
 	<StandardListItem
 			title="{b}"
 			type ="Active"
-			press="press"
+			press="onSubmitDialog"
 			/>
 	</List>
 		
