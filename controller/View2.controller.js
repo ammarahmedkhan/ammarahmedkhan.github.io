@@ -19,7 +19,7 @@ sap.ui.define([
 			{"id":"96676","employee_name":"ggg","employee_salary":"12","employee_age":"12","profile_image":""}]};
 			//var oModel = new JSONModel();
 			//oModel.setData(data);
-			console.log(oModel);
+			//console.log(oModel);
 			this.getView().setModel(oModel);
 		},
 				onBack:function(){

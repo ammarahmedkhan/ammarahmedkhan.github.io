@@ -17,7 +17,7 @@ sap.ui.define([
 	var sampleappController = Controller.extend("sap.m.sample.sampleapp4.controller.View1", {
 
 		handleLinkPress: function (evt) {
-			MessageBox.alert("Link was clicked!");
+			//MessageBox.alert("Link was clicked!");
 		},
 		
 		onInit: function (){

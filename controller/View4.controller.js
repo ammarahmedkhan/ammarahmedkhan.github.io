@@ -40,7 +40,7 @@ sap.ui.define([
 /* 			items = "{/products}"
 			title = "{prodName}"
             description =  "{prodCountry}" */
-			console.log(model);
+//			console.log(model);
             this.getView().setModel(model);
 			
 		},
@@ -92,7 +92,7 @@ sap.ui.define([
 			//var sToPageId = oEvent.getParameter("listItem").getCustomData()[0].getValue();
 			var sToPageId="detail"
 			var oItem = oEvent.getSource();
-			console.log(oItem.properties);
+			//console.log(oItem.properties);
 			var oCtx = oItem.getBindingContext();
 			var path = oCtx.getPath();
 			//this.getView().byId("textarea").bindElement(path);
@@ -112,7 +112,7 @@ sap.ui.define([
 		
 		navButtonPress : function(){
 			//MessageToast.show("back button");
-			console.log("dddd");
+			//console.log("dddd");
 			this.getSplitContObj().toMaster(this.createId("master"));
 			
 		},
@@ -120,13 +120,13 @@ sap.ui.define([
 			var sSplitAppMode = oEvent.getSource().getSelectedButton().getCustomData()[0].getValue();
 
 			this.getSplitContObj().setMode(sSplitAppMode);
-			MessageToast.show("Split Container mode is changed to: " + sSplitAppMode, {duration: 5000});
+			//MessageToast.show("Split Container mode is changed to: " + sSplitAppMode, {duration: 5000});
 		},
 
 		getSplitContObj : function() {
 			var result = this.byId("id1");
 			if (!result) {
-				console.log("SplitApp object can't be found");
+				//console.log("SplitApp object can't be found");
 			}
 			return result;
 		}
@@ -185,7 +185,7 @@ sap.ui.define([
 /* 			items = "{/products}"
 			title = "{prodName}"
             description =  "{prodCountry}" */
-			console.log(model);
+			//console.log(model);
             this.getView().setModel(model);
 			
 		},

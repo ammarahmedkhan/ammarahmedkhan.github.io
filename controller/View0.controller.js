@@ -13,7 +13,11 @@ sap.ui.define([
 			/* var oItem = evt.getSource();
 			var oCtx = oItem.getBindingContext();
 			var path = oCtx.getPath(); */
-			MessageToast.show(route);
+			//MessageToast.show(route);
+			if (route == 'pdf'){
+			MessageToast.show("PDF may not appear on mobile phones");
+			}
+			
 			sap.ui.getCore().byId("myApp").to(route);
 		},
 		

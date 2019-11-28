@@ -14,7 +14,7 @@ sap.ui.define([
 			var oCtx = oItem.getBindingContext();
 			var path = oCtx.getPath(); */
 			
-			MessageToast.show(route);
+			//MessageToast.show(route);
 		},
 		
 		onInit: function (){
