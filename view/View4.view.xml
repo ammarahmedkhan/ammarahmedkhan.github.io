@@ -6,8 +6,7 @@
 		xmlns:form="sap.ui.layout.form"
 		xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 		xmlns="sap.m">
-			<Page showNavButton="true" navButtonType="Back" 
-                             navButtonPress="onBack">
+
 	<l:VerticalLayout
 			class="sapUiContentPadding"
 			width="100%">
@@ -53,7 +52,9 @@
 			</Page>
 			</detailPages>
 			<masterPages>
-						<Page title = "List" id = "master">
+						<Page title = "List" id = "master"
+						 showNavButton="true" navButtonType="Back" 
+                             navButtonPress="onBack">
 			<content>
 			<List id = "list"
 			items = "{/value}"
@@ -75,7 +76,7 @@
 		</Page>
 		</l:content>
 	</l:VerticalLayout>
-		</Page>
+		
 </mvc:View>
 
 
