@@ -1,0 +1,24 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp4.controller.View5"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	>
+
+	<App>
+		<pages>
+			<Page title="pdf from SAP Netweaver" id="id1" showNavButton="true" navButtonType="Back" 
+                             navButtonPress="onBack">
+				<content>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+
+</mvc:View>
+
+
+<!-- 					<PDFViewer title="New SAPUI5 PDFViewer" source="{}"></PDFViewer> -->

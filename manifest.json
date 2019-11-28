@@ -1,14 +1,14 @@
 {
 	"sap.app": {
-		"id": "sap.m.sample.sampleapp",
+		"id": "sap.m.sample.sampleapp4",
 		"applicationVersion": {
 			"version": "1.0.0"
 		}
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.m.sample.sampleapp.App",
-			"type": "XML",
+			"viewName": "sap.m.sample.sampleapp4.view.App",
+			"type": "JS",
 			"async": true
 		},
 		"dependencies": {

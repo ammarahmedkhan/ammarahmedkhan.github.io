@@ -1,0 +1,33 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp4.controller.App"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml">
+	<GenericTile id="list-popup" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Approve with remarks app"
+		subheader="A simple list with remarks in popup" press="press">
+		<TileContent>
+			<ImageContent src="sap-icon://home-share" />
+		</TileContent>
+	</GenericTile>
+
+	<GenericTile id="table" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Fiori Table"
+		subheader="Fiori table control with data from backend" press="press">
+		<TileContent>
+			<ImageContent src="https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/SAPLogoLargeTile_28px_height.png" />
+		</TileContent>
+	</GenericTile>
+
+	<GenericTile id="card-layout" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Notifications List"
+		subheader="A card layout list suited for notifications" mode="HeaderMode" press="press">
+	</GenericTile>
+
+	<GenericTile id="master-detail" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Master-Detail app"
+		subheader="Master detail app that adjusts layout accordingly" press="press">
+		<TileContent>
+		
+			<ImageContent src="https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/ProfileImage_LargeGenTile.png" />
+		</TileContent>
+	</GenericTile>
+</mvc:View>

@@ -1,0 +1,98 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp4.controller.View2"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns="sap.m">	
+	<Page showNavButton="true" navButtonType="Back" 
+                             navButtonPress="onBack">
+	
+	<Table id="idProductsTable"
+		inset="false"
+		items="{/data}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="Employees" level="H2"/>
+					<ToolbarSpacer />
+					<ComboBox id="idPopinLayout"
+						placeholder="Popin layout options"
+						change="onPopinLayoutChanged">
+						<items>
+							<core:Item  text="Block"
+								key="Block"/>
+							<core:Item  text="Grid Large"
+								key="GridLarge"/>
+							<core:Item  text="Grid Small"
+								key="GridSmall"/>
+						</items>
+					</ComboBox>
+					<Label text="Sticky options:" />
+					<CheckBox text="ColumnHeaders"
+						select="onSelect"/>
+					<CheckBox text="HeaderToolbar"
+						select="onSelect"/>
+					<CheckBox text="InfoToolbar"
+						select="onSelect"/>
+					<ToggleButton id="toggleInfoToolbar"
+						text="Hide/Show InfoToolbar"
+						press="onToggleInfoToolbar" />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<infoToolbar>
+			<OverflowToolbar>
+				<Label text="With special thanks to https://reqres.in/ for providing the RESTful data"/>
+			</OverflowToolbar>
+		</infoToolbar>
+		<columns>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Employee photo" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Employee Name" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Employee Email" />
+			</Column>
+
+			
+			<Column
+				width="12em">
+				<Text text="ID" />
+			</Column>
+			
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<f:Avatar
+						src="{avatar}"
+						displaySize="M"
+						displayShape="Square"
+						showBorder="true">
+					</f:Avatar>
+					<Text
+						text="{first_name}" />
+					<Text
+						text="{email}" />
+
+					
+										<ObjectIdentifier
+						title="{id}"
+						/>
+						 
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	</Page>
+</mvc:View>
