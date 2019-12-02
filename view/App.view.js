@@ -23,6 +23,7 @@ return "sap.m.sample.sampleapp4.controller.App";
 */
 
 createContent : function(oController) {
+		console.log("App:" + Date.now());
 		var app = new sap.m.App("myApp",{initialPage:"tile"});
 		var tile = sap.ui.view({id:"tile", viewName:"sap.m.sample.sampleapp4.view.View0", type:sap.ui.core.mvc.ViewType.XML});
 		var list_popup = sap.ui.view({id:"list-popup", viewName:"sap.m.sample.sampleapp4.view.View1", type:sap.ui.core.mvc.ViewType.XML});
@@ -32,11 +33,17 @@ createContent : function(oController) {
 		var pdf = sap.ui.view({id:"pdf", viewName:"sap.m.sample.sampleapp4.view.View5", type:sap.ui.core.mvc.ViewType.XML});
 		
 		app.addPage(tile);
+		
 		app.addPage(list_popup);
+		
 		app.addPage(table);
+		
 		app.addPage(card_layout);
+		
 		app.addPage(master_detail);
+		
 		app.addPage(pdf);
+		sap.ui.core.BusyIndicator.hide();
 		return app;
 
 }
