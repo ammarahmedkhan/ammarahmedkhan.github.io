@@ -1,0 +1,55 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp4.controller.View0"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml">
+	<GenericTile id="list-popup" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Worklist with remarks app"
+		subheader="A simple item submit list with remarks in popup" press="press">
+		<TileContent>
+			<ImageContent src="sap-icon://activities" />
+		</TileContent>
+	</GenericTile>
+
+	<GenericTile id="table" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Fiori Table"
+		subheader="Fiori table control with data from backend" press="press">
+		<TileContent>
+			<ImageContent src="sap-icon://table-view" />
+		</TileContent>
+	</GenericTile>
+
+	<GenericTile id="card-layout" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Notifications List"
+		subheader="A card layout list suited for notifications" press="press">
+				<TileContent>
+			<ImageContent src="sap-icon://ui-notifications" />
+		</TileContent>
+		
+	</GenericTile>
+
+	<GenericTile id="master-detail" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Master-Detail app"
+		subheader="Master detail app that adjusts layout accordingly" press="press">
+		<TileContent>
+		
+			<ImageContent src="sap-icon://screen-split-one" />
+		</TileContent>
+	</GenericTile>
+		<GenericTile id="pdf" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="PDF display app"
+		subheader="Show documents directly from backend ERP" press="press">
+		<TileContent>
+		
+			<ImageContent src="sap-icon://pdf-attachment" />
+		</TileContent>
+	</GenericTile>
+	
+		<GenericTile id="rating" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Leave a Rating !"
+		subheader="All feedback appreciated :-)" press="onOpenDialog">
+		<TileContent>
+		
+			<ImageContent src="sap-icon://pdf-attachment" />
+		</TileContent>
+	</GenericTile>
+	
+</mvc:View>
