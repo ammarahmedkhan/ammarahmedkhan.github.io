@@ -42,4 +42,14 @@
 			<ImageContent src="sap-icon://pdf-attachment" />
 		</TileContent>
 	</GenericTile>
+	
+		<GenericTile id="rating" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Leave a Rating !"
+		subheader="All feedback appreciated :-)" press="onOpenDialog">
+		<TileContent>
+		
+			<ImageContent src="sap-icon://pdf-attachment" />
+		</TileContent>
+	</GenericTile>
+	
 </mvc:View>
