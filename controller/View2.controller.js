@@ -2,13 +2,16 @@ sap.ui.define([
 	'jquery.sap.global',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
-	'sap/m/MessageToast'
-], function (jQuery, Controller, JSONModel) {
+	'sap/m/MessageToast',
+	'sap/ui/core/BusyIndicator'
+], function (jQuery, Controller, JSONModel,BusyIndicator) {
 	'use strict';
 
 	var CController = Controller.extend('sap.m.sample.sampleapp4.controller.View2', {
 		
 		onInit : function() {
+			console.log("table:" + Date.now());
+			
 			//MessageToast.show("eee");
 			// set explored app's demo model on this sample
 			//var oModel = new JSONModel("http://dummy.restapiexample.com/api/v1/employees");

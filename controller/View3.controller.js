@@ -1,12 +1,19 @@
 sap.ui.define([
 	'jquery.sap.global',
 	'sap/ui/core/mvc/Controller',
-	'sap/m/MessageToast'
-], function (jQuery, Controller, MessageToast) {
+	'sap/m/MessageToast',
+	'sap/ui/core/BusyIndicator'
+], function (jQuery, Controller, MessageToast,BusyIndicator) {
 	'use strict';
 
 	var CController = Controller.extend('sap.m.sample.sampleapp4.controller.View3', {
-
+		
+		onInit : function(){
+			console.log("card-layout:" + Date.now());
+			
+			
+		},
+		
 		onListItemPress: function (oEvent) {
 			MessageToast.show('Item Pressed: ' + oEvent.getSource().getTitle());
 		},

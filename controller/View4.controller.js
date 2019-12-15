@@ -1,8 +1,9 @@
 sap.ui.define([
 	'jquery.sap.global',
 	'sap/ui/core/mvc/Controller',
-	'sap/m/MessageToast'
-], function (jQuery, Controller, MessageToast) {
+	'sap/m/MessageToast',
+	'sap/ui/core/BusyIndicator'
+], function (jQuery, Controller, MessageToast,BusyIndicator) {
 	'use strict';
 
 	var CController = Controller.extend('sap.m.sample.sampleapp4.controller.View4', {
@@ -10,6 +11,8 @@ sap.ui.define([
 		
 		
 		onInit : function() {
+			console.log("master-detail:" + Date.now());
+			
 			
 			var data1 = {
 				"products": [

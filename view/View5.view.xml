@@ -9,7 +9,7 @@
 
 	<App>
 		<pages>
-			<Page title="pdf from SAP Netweaver" id="id1" showNavButton="true" navButtonType="Back" 
+			<Page title="pdf document viewer" id="id1" showNavButton="true" navButtonType="Back" 
                              navButtonPress="onBack">
 				<content>
 					

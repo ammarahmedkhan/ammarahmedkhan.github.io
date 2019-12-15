@@ -26,13 +26,12 @@ createContent : function(oController) {
 		console.log("App:" + Date.now());
 		var app = new sap.m.App("myApp",{initialPage:"tile"});
 		var tile = sap.ui.view({id:"tile", viewName:"sap.m.sample.sampleapp4.view.View0", type:sap.ui.core.mvc.ViewType.XML});
-		var list_popup = sap.ui.view({id:"list-popup", viewName:"sap.m.sample.sampleapp4.view.View1", type:sap.ui.core.mvc.ViewType.XML});
+		app.addPage(tile);
+		/* var list_popup = sap.ui.view({id:"list-popup", viewName:"sap.m.sample.sampleapp4.view.View1", type:sap.ui.core.mvc.ViewType.XML});
 		var table = sap.ui.view({id:"table", viewName:"sap.m.sample.sampleapp4.view.View2", type:sap.ui.core.mvc.ViewType.XML});
 		var card_layout = sap.ui.view({id:"card-layout", viewName:"sap.m.sample.sampleapp4.view.View3", type:sap.ui.core.mvc.ViewType.XML});
 		var master_detail = sap.ui.view({id:"master-detail", viewName:"sap.m.sample.sampleapp4.view.View4", type:sap.ui.core.mvc.ViewType.XML});
 		var pdf = sap.ui.view({id:"pdf", viewName:"sap.m.sample.sampleapp4.view.View5", type:sap.ui.core.mvc.ViewType.XML});
-		
-		app.addPage(tile);
 		
 		app.addPage(list_popup);
 		
@@ -42,7 +41,7 @@ createContent : function(oController) {
 		
 		app.addPage(master_detail);
 		
-		app.addPage(pdf);
+		app.addPage(pdf); */
 		sap.ui.core.BusyIndicator.hide();
 		return app;
 

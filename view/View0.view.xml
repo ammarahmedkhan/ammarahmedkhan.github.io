@@ -5,23 +5,45 @@
 	header="Worklist with remarks app"
 		subheader="A simple item submit list with remarks in popup" press="press">
 		<TileContent>
+						<content>
+			<VBox>
 			<ImageContent src="sap-icon://activities" />
+									<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "li-list-popup"/>
+			</VBox>
+			</content>
+
 		</TileContent>
 	</GenericTile>
 
 	<GenericTile id="table" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Fiori Table"
-		subheader="Fiori table control with data from backend" press="press">
+		subheader="Fiori table control with data from backend" press="press" >
 		<TileContent>
+						<content>
+			<VBox>
 			<ImageContent src="sap-icon://table-view" />
+									<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "li-table"/>
+			</VBox>
+			</content>
+
 		</TileContent>
 	</GenericTile>
 
 	<GenericTile id="card-layout" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
-	header="Notifications List"
+	header="Notifications List" 
 		subheader="A card layout list suited for notifications" press="press">
+
 				<TileContent>
+						<content>
+			<VBox>
 			<ImageContent src="sap-icon://ui-notifications" />
+									<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "li-card-layout"/>
+			</VBox>
+			</content>
+
 		</TileContent>
 		
 	</GenericTile>
@@ -30,8 +52,14 @@
 	header="Master-Detail app"
 		subheader="Master detail app that adjusts layout accordingly" press="press">
 		<TileContent>
-		
+		<content>
+		<VBox>
 			<ImageContent src="sap-icon://screen-split-one" />
+				<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "li-master-detail"/>
+			
+		</VBox>
+		</content>
 		</TileContent>
 	</GenericTile>
 		<GenericTile id="pdf" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
@@ -39,17 +67,27 @@
 		subheader="Show documents directly from backend ERP" press="press">
 		<TileContent>
 		
+						<content>
+						<VBox>
 			<ImageContent src="sap-icon://pdf-attachment" />
+									<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "li-pdf"/>
+				</VBox>
+			</content>
 		</TileContent>
 	</GenericTile>
 	
 		<GenericTile id="rating" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Leave a Rating !"
 		subheader="All feedback appreciated :-)" press="onOpenDialog">
+
 		<TileContent>
 		
-			<ImageContent src="sap-icon://pdf-attachment" />
+			<ImageContent src="sap-icon://favorite" />
+
 		</TileContent>
 	</GenericTile>
+	
+
 	
 </mvc:View>

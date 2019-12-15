@@ -9,9 +9,10 @@ sap.ui.define([
 		'sap/ui/layout/HorizontalLayout',
 		'sap/ui/layout/VerticalLayout',
 		'sap/m/ButtonType',
-		'sap/ui/core/mvc/Controller'
+		'sap/ui/core/mvc/Controller',
+		'sap/ui/core/BusyIndicator'
 		
-	], function(MessageBox, Button, Dialog, Label, MessageToast, Text, TextArea, HorizontalLayout, VerticalLayout, ButtonType, Controller) {
+	], function(MessageBox, Button, Dialog, Label, MessageToast, Text, TextArea, HorizontalLayout, VerticalLayout, ButtonType, Controller,BusyIndicator) {
 	"use strict";
 	var jsonData;
 	var sampleappController = Controller.extend("sap.m.sample.sampleapp4.controller.View1", {
@@ -22,6 +23,8 @@ sap.ui.define([
 		
 		onInit: function (){
 			//MessageBox.alert("This done got initialized ma ni*&^r!");
+			console.log("list:" + Date.now());
+			
 			var oModel, oView;
 			     jsonData = [ {
 							 a: 1,
