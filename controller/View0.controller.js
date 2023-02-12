@@ -114,36 +114,7 @@ submitFeedback: function () {
 
 
 rateit: function(rating,text_rating){
-var response=null;
-$.ajax({
-					'async': false,
-					'global': false,
-					'url': "https://api.jsonbin.io/b/5de77eba00099304060d858d",
-					'dataType': "json",
-					'headers': {"secret-key":"$2b$10$AE8cLIBRPv2TOxebjKo6z.qLOV6CgeqOYanWANa6TF1PjHqmGzS/K"},
-					'success': function (data) {
-						response = data;
-					}
-				});
-var rating={rating: rating, text: text_rating};
-response.push(rating);
-// put
-$.ajax({
-					'async': false,
-					'global': false,
-					"method": "PUT",
-					'url': "https://api.jsonbin.io/b/5de77eba00099304060d858d",
-					'dataType': "application/json",
-					'headers': 
-					{"secret-key":"$2b$10$AE8cLIBRPv2TOxebjKo6z.qLOV6CgeqOYanWANa6TF1PjHqmGzS/K",
-					"Content-Type":"application/json",
-					"versioning":"false"},
-					'data' : JSON.stringify(response),
-					'success': function (data) {
-						console.log(data);
-					}
-				});
-
+	//will put a real datastore here soon
 },
 
 

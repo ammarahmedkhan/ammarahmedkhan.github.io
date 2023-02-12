@@ -15,6 +15,7 @@ sap.ui.define([
 	], function(MessageBox, Button, Dialog, Label, MessageToast, Text, TextArea, HorizontalLayout, VerticalLayout, ButtonType, Controller,BusyIndicator) {
 	"use strict";
 	var jsonData;
+	var dialogsObj={};
 	var sampleappController = Controller.extend("sap.m.sample.sampleapp4.controller.View1", {
 
 		handleLinkPress: function (evt) {
@@ -22,7 +23,6 @@ sap.ui.define([
 		},
 		
 		onInit: function (){
-			//MessageBox.alert("This done got initialized ma ni*&^r!");
 			console.log("list:" + Date.now());
 			
 			var oModel, oView;
@@ -77,19 +77,35 @@ sap.ui.define([
 			var oItem = oe.getSource();
 			var oCtx = oItem.getBindingContext();
 			var path = oCtx.getPath();
-			var dialog = new Dialog({
+			var name = jsonData[path.substr(1)]["b"];
+			var dialog = {};
+			if(dialogsObj[name] != undefined){
+				dialog = dialogsObj[name];
+			}
+			else{
+				dialog = this.createDialog(name);
+				dialogsObj[name];
+			}
+			dialog.open();
+		},
+		
+		createDialog:function (name){
+				var dynamicId = name + "-textArea";
+				var dialog = new Dialog({
+				id:name,
 				title: 'Confirm',
 				type: 'Message',
 				content: [
-					new Label({ text: 'Are you sure you want to submit your comments?', labelFor: 'submitDialogTextarea'}),
-					new TextArea('submitDialogTextarea', {
+					new Label({ text: 'Are you sure you want to submit your comments?', labelFor: dynamicId}),
+					new TextArea(dynamicId, {
 						liveChange: function(oEvent) {
+							debugger;
 							var sText = oEvent.getParameter('value');
 							var parent = oEvent.getSource().getParent();
 							parent.getBeginButton().setEnabled(sText.length > 0);
 						},
 						width: '100%',
-						placeholder: 'Add note for : ' + jsonData[path.substr(1)]["b"]
+						placeholder: 'Add note for : ' + name
 					})
 				],
 				beginButton: new Button({
@@ -97,7 +113,7 @@ sap.ui.define([
 					text: 'Submit',
 					enabled: false,
 					press: function () {
-						var sText = sap.ui.getCore().byId('submitDialogTextarea').getValue();
+						var sText = sap.ui.getCore().byId(dynamicId).getValue();
 						MessageToast.show('Note is: ' + sText);
 						dialog.close();
 					}
@@ -112,12 +128,12 @@ sap.ui.define([
 					dialog.destroy();
 				}
 			});
-
-			dialog.open();
-		}
+			return dialog;}
+		
 
 	});
 
 	return sampleappController ;
 
 });
+//https://ammarahmedkhan.github.io/
