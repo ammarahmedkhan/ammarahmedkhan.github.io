@@ -3,7 +3,8 @@
 		class="sapUiBodyBackground sapContrastPlus"
 		xmlns:l="sap.ui.layout"
 		xmlns:mvc="sap.ui.core.mvc"
-		xmlns:form="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns:f="sap.ui.layout.form"
 		xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 		xmlns="sap.m">
 
@@ -17,32 +18,69 @@
 			<detailPages>
 			<Page id = "detail" showNavButton = "true" navButtonPress="navButtonPress">
 			<content>
-			
 	<ScrollContainer id="containerForm"
 					width="100%"
 					horizontal="false"
 					vertical="false">
-		<form:SimpleForm
-			layout="ResponsiveGridLayout"
-			editable="true"
-			title="Form nested">
-			<Label id="labelInForm"
-			displayOnly="true" 
-			wrapping="true" 
-			text="Title"/>
-			<Input value="{Title}"></Input>
-		</form:SimpleForm>
+
+	
+	
+	<f:Form id="FormDisplay354"
+			editable="false">
+			<f:title>
+				<core:Title text="Employee Details" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Employee ID">
+							<f:fields>
+								<Text text="{EmployeeID}" id="nameText"  />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="First Name">
+							<f:fields>
+								<Text text="{FirstName}" />						
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Title">
+							<f:fields>
+								<Text text="{Title}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="City">
+							<f:fields>
+								<Text text="{City}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Country">
+							<f:fields>
+								<Text text="{Country}" id="countryText" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+
 	</ScrollContainer>
-	<Panel id="containerLayout"
-				headerText="Panel Nested"
-				width="100%">
-		<Label id="label"
-				labelFor="containerInput"
-				displayOnly="true"
-				wrapping="true"
-				text="FirstName"/>
-		<Input  value="{FirstName}" ></Input>
-	</Panel>
+	
 	<MessageStrip
 		class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom"
 		type="Warning"
@@ -52,7 +90,7 @@
 			</Page>
 			</detailPages>
 			<masterPages>
-						<Page title = "List" id = "master"
+						<Page title = "Employee List" id = "master"
 						 showNavButton="true" navButtonType="Back" 
                              navButtonPress="onBack">
 			<content>
