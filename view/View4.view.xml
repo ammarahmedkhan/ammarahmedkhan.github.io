@@ -29,8 +29,8 @@
 			<Label id="labelInForm"
 			displayOnly="true" 
 			wrapping="true" 
-			text="Gender"/>
-			<Input value="{Gender}"></Input>
+			text="Title"/>
+			<Input value="{Title}"></Input>
 		</form:SimpleForm>
 	</ScrollContainer>
 	<Panel id="containerLayout"
@@ -40,13 +40,13 @@
 				labelFor="containerInput"
 				displayOnly="true"
 				wrapping="true"
-				text="Username"/>
-		<Input  value="{UserName}" ></Input>
+				text="FirstName"/>
+		<Input  value="{FirstName}" ></Input>
 	</Panel>
 	<MessageStrip
 		class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom"
 		type="Warning"
-		text='The service used for this available at odata.org' />
+		text='The service used for this is the Northwind OData service' />
 			
 			</content>
 			</Page>
