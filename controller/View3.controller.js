@@ -9,9 +9,6 @@ sap.ui.define([
 	var CController = Controller.extend('sap.m.sample.sampleapp4.controller.View3', {
 		
 		onInit : function(){
-			console.log("card-layout:" + Date.now());
-			
-			
 		},
 		
 		onListItemPress: function (oEvent) {

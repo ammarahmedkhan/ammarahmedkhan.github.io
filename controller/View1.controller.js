@@ -19,11 +19,9 @@ sap.ui.define([
 	var sampleappController = Controller.extend("sap.m.sample.sampleapp4.controller.View1", {
 
 		handleLinkPress: function (evt) {
-			//MessageBox.alert("Link was clicked!");
 		},
 		
 		onInit: function (){
-			console.log("list:" + Date.now());
 			
 			var oModel, oView;
 			     jsonData = [ {
@@ -56,19 +54,15 @@ sap.ui.define([
 		},
 		
 		press : function(oEvent){
-			//MessageToast.show("te");
 			var oItem = oEvent.getSource();
-			//console.log(oItem.properties);
 			var oCtx = oItem.getBindingContext();
 			var path = oCtx.getPath();
-			//console.log(jsonData[path.substr(1)]);
 			MessageBox.information("Information", {
 				title: "you clicked on",
 				id: "messageBoxId1",
 				details: jsonData[path.substr(1)]["b"],
 				contentWidth: "100px"
 			});
-			//this.getView().byId("textarea").bindElement(path);
 		},
 		
 		onSubmitDialog: function (oe) {
@@ -136,4 +130,3 @@ sap.ui.define([
 	return sampleappController ;
 
 });
-//https://ammarahmedkhan.github.io/
