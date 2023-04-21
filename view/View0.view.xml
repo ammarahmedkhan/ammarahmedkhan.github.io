@@ -77,6 +77,21 @@
 		</TileContent>
 	</GenericTile>
 	
+			<GenericTile id="qr" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="QR scanner app"
+		subheader="Scan QR codes through Fiori" press="press">
+		<TileContent>
+		
+						<content>
+						<VBox>
+			<ImageContent src="sap-icon://qr-code" />
+									<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "li-qr"/>
+				</VBox>
+			</content>
+		</TileContent>
+	</GenericTile>
+	
 		<GenericTile id="rating" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Leave a Rating !"
 		subheader="All feedback appreciated :-)" press="onOpenDialog">

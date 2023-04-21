@@ -17,7 +17,8 @@ sap.ui.define([
 			'table':["sap.m.sample.sampleapp4.view.View2"],
 			'card-layout':["sap.m.sample.sampleapp4.view.View3"],
 			'master-detail':["sap.m.sample.sampleapp4.view.View4"],
-			'pdf':["sap.m.sample.sampleapp4.view.View5"]
+			'pdf':["sap.m.sample.sampleapp4.view.View5"],
+			'qr':["sap.m.sample.sampleapp4.view.View6"]
 		};
 	
 	var sampleappController = Controller.extend("sap.m.sample.sampleapp4.controller.View0", {
@@ -97,7 +98,9 @@ rateit: function(rating,text_rating){
 			this.getView().byId("tile--li-card-layout").setVisible(false);
 			this.getView().byId("tile--li-master-detail").setVisible(false);
 			this.getView().byId("tile--li-pdf").setVisible(false);
+			this.getView().byId("tile--li-qr").setVisible(false);
 			console.log("tile:" + Date.now());
+			/*
 			var oModel, oView;
 			     var jsonData = [ {
 							 a: 1,
@@ -122,6 +125,8 @@ rateit: function(rating,text_rating){
 			oView = this.getView();
 			oView.setModel(jsonModel);
 			var oView = this.getView();
+			
+			*/
 		}
 		
 

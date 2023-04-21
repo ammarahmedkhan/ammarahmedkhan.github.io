@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp4.controller.View6"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true"
+	height="100%" scrollable="true">	
+
+<Page title= "QR Codes!"
+showNavButton="true" navButtonType="Back" 
+                             navButtonPress="onBack">
+<Panel id="idPnl">
+
+</Panel>
+
+</Page>
+	
+
+</mvc:View>
