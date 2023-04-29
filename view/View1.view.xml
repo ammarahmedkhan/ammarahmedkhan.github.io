@@ -11,16 +11,25 @@
 		class="sapUiContentPadding"
 		width="100%">
 		<l:content>
-		
-		
+<l:HorizontalLayout 		class="sapUiContentPadding"
+>
+		<Button icon="sap-icon://add" text="Add note" press="addNote"/>
+		<Button icon="sap-icon://accept" text="show done" press="showDone"/>
+		<Button icon="sap-icon://accelerated" text="show in-prog" press="showInProg"/>
+		<Button icon="sap-icon://action" text="show all" press="showAll"/>
+</l:HorizontalLayout>
 <List
-	headerText  = "People Details"
+	headerText  = "Notes"
 	items = 	"{/}"
+	id = "tbl"
 	>
 	<StandardListItem
-			title="{b}"
+			
+			icon="{path:'status', formatter:'.getIcon'}"
+			title="{title}"
 			type ="Active"
 			press="onSubmitDialog"
+			description="{note}"
 			/>
 	</List>
 		
