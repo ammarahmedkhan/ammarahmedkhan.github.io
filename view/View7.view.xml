@@ -1,0 +1,174 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp4.controller.View7"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:c="sap.suite.ui.microchart"
+	xmlns:l="sap.ui.layout"
+>
+	<Page 
+		showNavButton = "true" navButtonPress="onBack">
+		<IconTabBar
+		id="idIconTabBar"
+		select="onFilterSelect"
+		class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter
+				icon="sap-icon://begin"
+				iconColor="Positive"
+				design="Horizontal"
+				count="2"
+				text="Enter, Monitor and track"
+				key="expenseEntry"
+				select = "tabSelected">
+				
+					<table:Table
+				id="tbl"
+				rows="{path : 'table>/rows'}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				paste="onPaste"
+				ariaLabelledBy="title">
+						<table:extension>
+							<OverflowToolbar style="Clear">
+								<Title id="title" text="Add Expenses or Money to the wallet"/>
+								<Button text="add expense/money" icon="sap-icon://collections-insight" press="addExp"/>
+								<Button text="delete items" icon="sap-icon://clear-all" press="delRows"/>
+							</OverflowToolbar>
+						</table:extension>
+						<table:columns>
+							<table:Column width="11rem">
+								<Label text="Description" />
+								<table:template>
+									<Input id="desc" valueState="{table>descValueState}" value="{table>description}" wrapping="true" valueLiveUpdate="true" liveChange="changeHandler" />
+								</table:template>
+							</table:Column>
+						</table:columns>
+						<table:columns>
+							<table:Column width="11rem">
+								<Label text="Amount" />
+								<table:template>
+									<Input id="amt" valueState="{table>amtValueState}" value="{table>amount}" type="Number" wrapping="true" valueLiveUpdate="true" liveChange="changeHandler" />
+								</table:template>
+							</table:Column>
+						</table:columns>
+						<table:columns>
+							<table:Column width="11rem">
+								<Label text="Due Date" />
+								<table:template>
+									<DatePicker value="{table>date}" showValueHelp="true" valueHelpOnly="true"  valueFormat="dd/MM/yyyy"  wrapping="true" valueLiveUpdate="true" />
+								</table:template>
+							</table:Column>
+						</table:columns>
+						<table:columns>
+							<table:Column width="11rem">
+								<Label text="Pay or Recieve" />
+								<table:template>
+								<Switch customTextOn="Pay" customTextOff="Rec" state="{table>pay_or_receive}" valueLiveUpdate="true"/>
+								</table:template>
+							</table:Column>
+						</table:columns>
+						<table:columns>
+							<table:Column width="11rem">
+								<Label text="Paid/Recieved" />
+								<table:template>
+								<Switch customTextOn="Yes" customTextOff="No" state="{table>paid_or_received}" valueLiveUpdate="true"/>
+								</table:template>
+							</table:Column>
+						</table:columns>
+					</table:Table>
+				</IconTabFilter>
+				<IconTabFilter
+				icon="sap-icon://compare"
+				text="Analyse"
+				iconColor="Critical"
+				design="Horizontal"
+				count="1"
+				key="charts" />
+			</items>
+			<content>
+			
+
+<Text text="Keep track" class="sapUiSmallMargin">
+		<layoutData>
+			<l:GridData span="XL12 L12 M12 S12"/>
+		</layoutData>
+	</Text>
+	<FlexBox width="20rem" height="10rem" alignItems="Start" justifyContent="SpaceBetween">
+		<items>
+			<c:InteractiveDonutChart >
+				<c:segments>
+					<c:InteractiveDonutChartSegment label="To Pay" value="{graphCalcsTotalFigures>/toPay}" displayedValue=""/>
+					<c:InteractiveDonutChartSegment label="To Receive" value="{graphCalcsTotalFigures>/toReceive}" displayedValue=""/>
+				</c:segments>
+			</c:InteractiveDonutChart>
+			
+			<c:InteractiveDonutChart >
+				<c:segments>
+					<c:InteractiveDonutChartSegment label="Pending" value="{graphCalcsTotalFigures>/pending}" displayedValue=""/>
+					<c:InteractiveDonutChartSegment label="Completed" value="{graphCalcsTotalFigures>/completed}" displayedValue=""/>
+				</c:segments>
+			</c:InteractiveDonutChart>
+			
+		</items>
+	</FlexBox>
+			
+			
+			
+			
+			</content>
+		</IconTabBar>
+	</Page>
+</mvc:View>
+
+
+<!-- 
+to later implement
+
+									<MenuButton text="Filter" buttonMode="Split" defaultAction="onDefaultAction">
+										<menu>
+											<Menu itemSelected="onMenuAction">
+												<MenuItem text="Show Paid/Recieved"  />
+												<MenuItem text="Show All"  />
+												<MenuItem text="Show Pending"  />
+											</Menu>
+										</menu>
+									</MenuButton>
+									
+									
+				onMenuAction: function(oEvent) {
+				var oItem = oEvent.getParameter("item"),
+					sItemPath = "";
+
+				while (oItem instanceof MenuItem) {
+					sItemPath = oItem.getText() + " > " + sItemPath;
+					oItem = oItem.getParent();
+				}
+				sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
+
+				MessageToast.show("Action triggered on item: " + sItemPath);
+				switch(sItemPath){
+				case 'Show Paid/Recieved':
+					this.filterItems('paid_or_recieved');
+				case 'Show All':
+					this.filterItems('all');				
+				case 'Show Pending':
+					this.filterItems('pending');								
+				}
+				
+			},
+			
+		filterItems : function(filterOption){
+            if (filterOption == "all") {
+                jsonModel = new JSONModel(jsonData);
+                this.getView().setModel(jsonModel);
+                return;
+            }
+            const jsonDataFiltered = jsonData.filter(function(item) {
+                if (item.status == status) return true
+            });
+            jsonModel = new JSONModel(jsonDataFiltered);
+            this.getView().setModel(jsonModel);
+		},
+									
+-->

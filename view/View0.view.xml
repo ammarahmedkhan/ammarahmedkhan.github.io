@@ -35,6 +35,22 @@
 		</TileContent>
 	</GenericTile>
 	
+				<GenericTile id="expensemgmt" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Expense management app"
+		subheader="Record, track, and monitor expenditures" press="press">
+		<TileContent>
+		
+						<content>
+						<VBox>
+			<ImageContent src="sap-icon://expense-report" />
+									<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "li-expensemgmt"/>
+				</VBox>
+			</content>
+		</TileContent>
+	</GenericTile>
+	
+	
 </Panel>
 
 	<Panel headerText="Basic UI demos" expandable="true" expanded="true">

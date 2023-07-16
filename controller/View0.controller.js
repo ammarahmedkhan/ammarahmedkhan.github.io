@@ -18,7 +18,8 @@ sap.ui.define([
 			'card-layout':["sap.m.sample.sampleapp4.view.View3"],
 			'master-detail':["sap.m.sample.sampleapp4.view.View4"],
 			'pdf':["sap.m.sample.sampleapp4.view.View5"],
-			'qr':["sap.m.sample.sampleapp4.view.View6"]
+			'qr':["sap.m.sample.sampleapp4.view.View6"],
+			'expensemgmt':["sap.m.sample.sampleapp4.view.View7"]
 		};
 	
 	var sampleappController = Controller.extend("sap.m.sample.sampleapp4.controller.View0", {
@@ -99,34 +100,7 @@ rateit: function(rating,text_rating){
 			this.getView().byId("tile--li-master-detail").setVisible(false);
 			this.getView().byId("tile--li-pdf").setVisible(false);
 			this.getView().byId("tile--li-qr").setVisible(false);
-			console.log("tile:" + Date.now());
-			/*
-			var oModel, oView;
-			     var jsonData = [ {
-							 a: 1,
-						b:"ammar"
-						 }, {
-							 a: 2,
-						b:"ali"
-						 }, {
-							 a: 3,
-						b:"omer"
-						 }, {
-							 a: 4,
-						b:"saad"
-						 }, {
-							 a:  5,
-						b:"waqar"
-						 }, {
-							 a: 6,
-						b:"babar"
-				 }];
-			var jsonModel = new sap.ui.model.json.JSONModel(jsonData);
-			oView = this.getView();
-			oView.setModel(jsonModel);
-			var oView = this.getView();
-			
-			*/
+			this.getView().byId("tile--li-expensemgmt").setVisible(false);
 		}
 		
 
