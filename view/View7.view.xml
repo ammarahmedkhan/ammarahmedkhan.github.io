@@ -34,6 +34,15 @@
 								<Title id="title" text="Add Expenses or Money to the wallet"/>
 								<Button text="add expense/money" icon="sap-icon://collections-insight" press="addExp"/>
 								<Button text="delete items" icon="sap-icon://clear-all" press="delRows"/>
+									<MenuButton text="Filter" buttonMode="Split" defaultAction="onDefaultAction">
+										<menu>
+											<Menu itemSelected="onMenuAction">
+												<MenuItem text="Show Paid/Recieved"  />
+												<MenuItem text="Show All"  />
+												<MenuItem text="Show Pending"  />
+											</Menu>
+										</menu>
+									</MenuButton>
 							</OverflowToolbar>
 						</table:extension>
 						<table:columns>
@@ -120,55 +129,3 @@
 		</IconTabBar>
 	</Page>
 </mvc:View>
-
-
-<!-- 
-to later implement
-
-									<MenuButton text="Filter" buttonMode="Split" defaultAction="onDefaultAction">
-										<menu>
-											<Menu itemSelected="onMenuAction">
-												<MenuItem text="Show Paid/Recieved"  />
-												<MenuItem text="Show All"  />
-												<MenuItem text="Show Pending"  />
-											</Menu>
-										</menu>
-									</MenuButton>
-									
-									
-				onMenuAction: function(oEvent) {
-				var oItem = oEvent.getParameter("item"),
-					sItemPath = "";
-
-				while (oItem instanceof MenuItem) {
-					sItemPath = oItem.getText() + " > " + sItemPath;
-					oItem = oItem.getParent();
-				}
-				sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
-
-				MessageToast.show("Action triggered on item: " + sItemPath);
-				switch(sItemPath){
-				case 'Show Paid/Recieved':
-					this.filterItems('paid_or_recieved');
-				case 'Show All':
-					this.filterItems('all');				
-				case 'Show Pending':
-					this.filterItems('pending');								
-				}
-				
-			},
-			
-		filterItems : function(filterOption){
-            if (filterOption == "all") {
-                jsonModel = new JSONModel(jsonData);
-                this.getView().setModel(jsonModel);
-                return;
-            }
-            const jsonDataFiltered = jsonData.filter(function(item) {
-                if (item.status == status) return true
-            });
-            jsonModel = new JSONModel(jsonDataFiltered);
-            this.getView().setModel(jsonModel);
-		},
-									
--->

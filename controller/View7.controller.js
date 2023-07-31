@@ -68,19 +68,6 @@ sap.ui.define([
 				this.performCalc();
 			}
 		},
-		doCalcReduce: function(attrToFilter,booleanVal,attrToUpdate){
-			graphCalcsTotalFigures.oData[attrToUpdate]=0;
-			oTable.oData.rows.forEach((obj)=>{
-				if(obj[attrToFilter]==booleanVal){
-					graphCalcsTotalFigures.oData[attrToUpdate] =
-					graphCalcsTotalFigures.oData[attrToUpdate] + 
-					parseInt(obj["amount"]);
-				}
-				
-			});
-			console.log(graphCalcsTotalFigures.oData[attrToUpdate]);
-		},
-		
 		doCalc: function(attrToFilter,booleanVal,attrToUpdate){
 			graphCalcsTotalFigures.oData[attrToUpdate]=0;
 			switch(oTable.oData.rows.filter((object) => {
@@ -94,10 +81,10 @@ sap.ui.define([
 					})[0].amount;
 				return;
 				default:
-			    graphCalcsTotalFigures.oData[attrToUpdate] = (oTable.oData.rows.filter((object) => {
+			    oTable.oData.rows.filter((object) => {
 						return object[attrToFilter] == booleanVal
-					})).reduce(function(previousValue, currentValue) {
-						return parseInt(previousValue.amount) + parseInt(currentValue.amount)
+					}).forEach(function(iterObj) {
+						graphCalcsTotalFigures.oData[attrToUpdate] += parseInt(iterObj.amount)
 					});
 			}
 			graphCalcsTotalFigures.refresh();
@@ -108,15 +95,46 @@ sap.ui.define([
 		this.doCalc('pay_or_receive',false,'toReceive');
 		this.doCalc('paid_or_received',false,'pending');
 		this.doCalc('paid_or_received',true,'completed');		
-		//console.log(graphCalcsTotalFigures.oData);
 		graphCalcsTotalFigures.refresh();
 		this.getView().setModel(graphCalcsTotalFigures, 'graphCalcsTotalFigures');		
         },
+		
+		onMenuAction: function(oEvent) {
+				var oItem = oEvent.getParameter("item"),
+					sItemPath = "";
+
+				while (oItem instanceof MenuItem) {
+					sItemPath = oItem.getText() + " > " + sItemPath;
+					oItem = oItem.getParent();
+				}
+				sItemPath = sItemPath.substr(0, sItemPath.lastIndexOf(" > "));
+
+				MessageToast.show("Action triggered on item: " + sItemPath);
+				switch(sItemPath){
+				case 'Show Paid/Recieved':
+					this.filterItems('paid_or_recieved');
+				case 'Show All':
+					this.filterItems('all');				
+				case 'Show Pending':
+					this.filterItems('pending');								
+				}
+				
+			},
+		filterItems : function(filterOption){
+        /*     if (filterOption == "all") {
+                jsonModel = new JSONModel(jsonData);
+                this.getView().setModel(jsonModel);
+                return;
+            }
+            const jsonDataFiltered = jsonData.filter(function(item) {
+                if (item.status == status) return true
+            });
+            jsonModel = new JSONModel(jsonDataFiltered);
+            this.getView().setModel(jsonModel); */
+		},
 
         onBack: function() {
             sap.ui.getCore().byId("myApp").back();
         }
     });
 });
-
-//wallet sap-icon://wallet
