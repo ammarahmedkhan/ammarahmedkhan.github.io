@@ -34,15 +34,7 @@
 								<Title id="title" text="Add Expenses or Money to the wallet"/>
 								<Button text="add expense/money" icon="sap-icon://collections-insight" press="addExp"/>
 								<Button text="delete items" icon="sap-icon://clear-all" press="delRows"/>
-									<MenuButton text="Filter" buttonMode="Split" defaultAction="onDefaultAction">
-										<menu>
-											<Menu itemSelected="onMenuAction">
-												<MenuItem text="Show Paid/Recieved"  />
-												<MenuItem text="Show All"  />
-												<MenuItem text="Show Pending"  />
-											</Menu>
-										</menu>
-									</MenuButton>
+								<Button text="Filter or Sort" icon="sap-icon://filter" press="handleOpenDialog"/>
 							</OverflowToolbar>
 						</table:extension>
 						<table:columns>

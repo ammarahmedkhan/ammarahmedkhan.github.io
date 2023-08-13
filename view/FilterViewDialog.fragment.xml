@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleConfirm"
+		reset = "resetFilters">
+		<filterItems>
+			<ViewSettingsFilterItem multiSelect="false" text="To Pay / Receive" key="pay_or_receive">
+				<items>
+					<ViewSettingsItem text="Payables only" key="pay_or_receive EQ true" />
+					<ViewSettingsItem text="Receivables only" key="pay_or_receive EQ false" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem multiSelect="false" text="Paid / Received" key="paid_or_received">
+				<items>
+					<ViewSettingsItem text="Completed" key="paid_or_received EQ true" />
+					<ViewSettingsItem text="Pending" key="paid_or_received EQ false" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
+<!--
+
+
+<sortItems>
+			<ViewSettingsItem text="Amount" key="1" selected="true" />
+		</sortItems>
+		
+		-->
