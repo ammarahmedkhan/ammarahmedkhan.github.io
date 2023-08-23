@@ -24,9 +24,11 @@
 				
 					<table:Table
 				id="tbl"
-				rows="{path : 'table>/rows'}"
+				rows="{path : 'table>/rows'
+				}"
 				selectionMode="MultiToggle"
 				visibleRowCount="7"
+				sort="amount"
 				paste="onPaste"
 				ariaLabelledBy="title">
 						<table:extension>
@@ -34,11 +36,12 @@
 								<Title id="title" text="Add Expenses or Money to the wallet"/>
 								<Button text="add expense/money" icon="sap-icon://collections-insight" press="addExp"/>
 								<Button text="delete items" icon="sap-icon://clear-all" press="delRows"/>
-								<Button text="Filter or Sort" icon="sap-icon://filter" press="handleOpenDialog"/>
+								<Button text="Filter" icon="sap-icon://filter" press="handleOpenDialog"/>
+								<Button text="Clear all sortings" icon="sap-icon://decline" press="clearAllSortings"/>
 							</OverflowToolbar>
 						</table:extension>
 						<table:columns>
-							<table:Column width="11rem">
+							<table:Column width="11rem" sortProperty="description" showSortMenuEntry="false">
 								<Label text="Description" />
 								<table:template>
 									<Input id="desc" valueState="{table>descValueState}" value="{table>description}" wrapping="true" valueLiveUpdate="true" liveChange="changeHandler" />
@@ -46,23 +49,27 @@
 							</table:Column>
 						</table:columns>
 						<table:columns>
-							<table:Column width="11rem">
-								<Label text="Amount" />
+							<table:Column width="11rem" sortProperty="amount">
+								<Label text="Amount"/>
 								<table:template>
 									<Input id="amt" valueState="{table>amtValueState}" value="{table>amount}" type="Number" wrapping="true" valueLiveUpdate="true" liveChange="changeHandler" />
 								</table:template>
 							</table:Column>
 						</table:columns>
 						<table:columns>
-							<table:Column width="11rem">
+							<table:Column width="11rem" sortProperty="date" showSortMenuEntry="false">
 								<Label text="Due Date" />
 								<table:template>
-									<DatePicker value="{table>date}" showValueHelp="true" valueHelpOnly="true"  valueFormat="dd/MM/yyyy"  wrapping="true" valueLiveUpdate="true" />
+									<DatePicker text = "{
+								path: 'table>date',
+								type: 'sap.ui.model.type.Date',
+								formatOptions: {source: {pattern: 'dd/MM/yyyy'}, style: 'long'}
+							}"  showValueHelp="true" valueHelpOnly="true"  wrapping="true" valueLiveUpdate="true" change="changeHandler"/>
 								</table:template>
 							</table:Column>
 						</table:columns>
 						<table:columns>
-							<table:Column width="11rem">
+							<table:Column width="11rem" sortProperty="pay_or_receive" showSortMenuEntry="false">
 								<Label text="Pay or Recieve" />
 								<table:template>
 								<Switch customTextOn="Pay" customTextOff="Rec" state="{table>pay_or_receive}" valueLiveUpdate="true"/>
@@ -70,7 +77,7 @@
 							</table:Column>
 						</table:columns>
 						<table:columns>
-							<table:Column width="11rem">
+							<table:Column width="11rem" sortProperty="paid_or_received" showSortMenuEntry="false">
 								<Label text="Paid/Recieved" />
 								<table:template>
 								<Switch customTextOn="Yes" customTextOff="No" state="{table>paid_or_received}" valueLiveUpdate="true"/>

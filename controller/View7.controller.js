@@ -10,6 +10,7 @@ sap.ui.define([
 
     "use strict";
     const todaysDate = new Date();
+	let oBinding;
 	let graphCalcsTotalFigures = new JSONModel({
 		toReceive:0,
 		toPay:0,
@@ -66,13 +67,27 @@ sap.ui.define([
         changeHandler: function(object) {
 			let valueState = (object.getParameters().newValue == "" ? sap.ui.core.ValueState.Error : sap.ui.core.ValueState.None);
 			if(object.mParameters.id.includes("amt")){
-				oTable.oData.rows[object.getSource().getParent().getIndex()]["amtValueState"]=parseInt(valueState);	
-			}else{
+				oTable.oData.rows[object.getSource().getParent().getIndex()]["amtValueState"]=valueState;	
+				oTable.oData.rows[object.getSource().getParent().getIndex()]["amount"]=
+				parseInt(object.getParameters().newValue);	
+			}
+			else{
 				oTable.oData.rows[object.getSource().getParent().getIndex()]["descValueState"]=valueState;			
 			}
         },
+		clearAllSortings: function(oEvent){
+			if(!oBinding)
+			{oBinding = this.getView().byId('tbl').getBinding();}
+			oBinding.sort(null);
+			const aColumns = this.getView().byId('tbl').getColumns();
+			for (let i = 0; i < aColumns.length; i++) {
+				aColumns[i].setSorted(false);
+			}
+		},
 		onFilterSelect : function(object){
-			if(object.getParameters().key == "charts"){
+		if(!oBinding)
+		{oBinding = this.getView().byId('tbl').getBinding();}
+		if(object.getParameters().key == "charts"){
 				this.performCalc();
 			}
 		},
@@ -143,25 +158,22 @@ sap.ui.define([
 		handleConfirm: function (oEvent) {
 			if (oEvent.getParameters().filterString) {
 				oEvent.getParameters().filterItems.map(object =>{
-					//console.log(object.mProperties.key);
 					this.filterItems(object.mProperties.key);
 				});
 			}
 		},
 	
 		filterItems : function(filterOption){
-		//https://answers.sap.com/questions/12625140/clear-filters-and-sorts-in-sapuitabletable.html
-		const oBinding = this.getView().byId('tbl').getBinding();
+		if(!oBinding)
+		{oBinding = this.getView().byId('tbl').getBinding();}
 		if(filterOption == "")
 		{
-		//oBinding.aFilters = null;
 		const oEmptyFilter = new sap.ui.model.Filter();
 		oBinding.filter(oEmptyFilter);
 		return;
 		}
 		else{
 		let filterQuery = filterOption.split(" ");
-		//const oFilter = new sap.ui.model.Filter("paid_or_received", "EQ", true);
 		const oFilter = new sap.ui.model.Filter(filterQuery[0], filterQuery[1], filterQuery[2] == "true");
 		aFilters.push(oFilter);
 		}
