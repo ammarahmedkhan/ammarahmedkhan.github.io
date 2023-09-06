@@ -1,9 +1,9 @@
 <mvc:View
 	controllerName="sap.m.sample.sampleapp4.controller.View0"
 	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml">
-	
+	<Page id="rootControl" title="Fiori app launchpad">
 	<Panel headerText="Use-cases" expandable="true" expanded="true">
-	<GenericTile id="list-popup" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	<GenericTile id="t-todo" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Todo notes app"
 		subheader="A simple todo notes with status tracking" press="press">
 		<TileContent>
@@ -11,7 +11,7 @@
 			<VBox>
 			<ImageContent src="sap-icon://activities" />
 									<BusyIndicator
-				class="sapUiSmallMarginBottom" id = "li-list-popup"/>
+				class="sapUiSmallMarginBottom" id = "todo" visible="{/todo}"/>
 			</VBox>
 			</content>
 
@@ -20,7 +20,7 @@
 
 	
 	
-			<GenericTile id="qr" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+			<GenericTile id="t-qr" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="QR scanner app"
 		subheader="Scan QR codes through Fiori" press="press">
 		<TileContent>
@@ -29,13 +29,13 @@
 						<VBox>
 			<ImageContent src="sap-icon://qr-code" />
 									<BusyIndicator
-				class="sapUiSmallMarginBottom" id = "li-qr"/>
+				class="sapUiSmallMarginBottom" id = "qr" visible="{/qr}"/>
 				</VBox>
 			</content>
 		</TileContent>
 	</GenericTile>
 	
-				<GenericTile id="expensemgmt" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+				<GenericTile id="t-expensemgmt" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Expense management app"
 		subheader="Record, track, and monitor expenditures" press="press">
 		<TileContent>
@@ -44,7 +44,7 @@
 						<VBox>
 			<ImageContent src="sap-icon://expense-report" />
 									<BusyIndicator
-				class="sapUiSmallMarginBottom" id = "li-expensemgmt"/>
+				class="sapUiSmallMarginBottom" id = "expensemgmt" visible="{/expensemgmt}"/>
 				</VBox>
 			</content>
 		</TileContent>
@@ -55,7 +55,7 @@
 
 	<Panel headerText="Basic UI demos" expandable="true" expanded="true">
 
-	<GenericTile id="master-detail" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	<GenericTile id="t-masterdetail" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Master-Detail app"
 		subheader="Master detail app that adjusts layout accordingly" press="press">
 		<TileContent>
@@ -63,7 +63,7 @@
 		<VBox>
 			<ImageContent src="sap-icon://screen-split-one" />
 				<BusyIndicator
-				class="sapUiSmallMarginBottom" id = "li-master-detail"/>
+				class="sapUiSmallMarginBottom" id = "masterdetail" visible="{/masterdetail}"/>
 			
 		</VBox>
 		</content>
@@ -72,7 +72,7 @@
 		
 		
 	</GenericTile>
-		<GenericTile id="pdf" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+		<GenericTile id="t-pdf" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="PDF display app"
 		subheader="Show documents directly from backend ERP" press="press">
 		<TileContent>
@@ -81,7 +81,7 @@
 						<VBox>
 			<ImageContent src="sap-icon://pdf-attachment" />
 									<BusyIndicator
-				class="sapUiSmallMarginBottom" id = "li-pdf"/>
+				class="sapUiSmallMarginBottom" id = "pdf" visible="{/pdf}"/>
 				</VBox>
 			</content>
 		</TileContent>
@@ -99,7 +99,7 @@
 		</TileContent>
 	</GenericTile>
 
-<GenericTile id="card-layout" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+<GenericTile id="t-cardlayout" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Notifications List" 
 		subheader="A card layout list suited for notifications" press="press">
 
@@ -108,7 +108,7 @@
 			<VBox>
 			<ImageContent src="sap-icon://ui-notifications" />
 									<BusyIndicator
-				class="sapUiSmallMarginBottom" id = "li-card-layout"/>
+				class="sapUiSmallMarginBottom" id = "cardlayout" visible="{/cardlayout}"/>
 			</VBox>
 			</content>
 
@@ -117,7 +117,7 @@
 	</GenericTile>
 	
 
-			<GenericTile id="table" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+			<GenericTile id="t-table" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Fiori Table"
 		subheader="Fiori table control with data from backend" press="press" >
 		<TileContent>
@@ -125,14 +125,12 @@
 			<VBox>
 			<ImageContent src="sap-icon://table-view" />
 									<BusyIndicator
-				class="sapUiSmallMarginBottom" id = "li-table"/>
+				class="sapUiSmallMarginBottom" id = "table" visible="{/table}"/>
 			</VBox>
 			</content>
 
 		</TileContent>
 	</GenericTile>
 	</Panel>
-
-
-	
+	</Page>
 </mvc:View>

@@ -1,36 +1,127 @@
 {
 	"sap.app": {
 		"id": "sap.m.sample.sampleapp4",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			],
+			"fallbackLocale": ""
+		},
 		"applicationVersion": {
 			"version": "1.0.0"
 		}
 	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+  	},
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "sap.m.sample.sampleapp4.view.App",
-			"type": "JS",
-			"async": true
-		},
-		"dependencies": {
-			"libs": {
-				"sap.ui.layout": {}
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},		
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"path": "sap.m.sample.sampleapp4.view",
+				"controlId": "rootControl",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+			{
+				"pattern": "",
+				"name": "main",
+				"target": "main"
+			},
+			
+			{
+				"pattern": "qr",
+				"name": "qr",
+				"target": "qr"
+			},
+			{
+				"pattern": "todo",
+				"name": "todo",
+				"target": "todo"
+			},
+			{
+				"pattern": "expensemgmt",
+				"name": "expensemgmt",
+				"target": "expensemgmt"
+			},
+			{
+				"pattern": "table",
+				"name": "table",
+				"target": "table"
+			},
+			{
+				"pattern": "cardlayout",
+				"name": "cardlayout",
+				"target": "cardlayout"
+			},
+			{
+				"pattern": "masterdetail",
+				"name": "masterdetail",
+				"target": "masterdetail"
+			},
+			{
+				"pattern": "pdf",
+				"name": "pdf",
+				"target": "pdf"
 			}
-		},
-		"config": {
-			"sample": {
-				"files": [
-					"App.view.xml",
-					"App.controller.js",
-					"manifest.json"
-				]
+			],
+			"targets": {
+				"main": {
+					"id": "View0",
+					"name": "view0",
+					"level" : 0
+				},
+				"qr": {
+					"id": "View6",
+					"name": "view6",
+					"level" : 1
+				},
+				"todo": {
+					"id": "View1",
+					"name": "view1",
+					"level" : 1
+				},
+				"table": {
+					"id": "View2",
+					"name": "view2",
+					"level" : 1
+				},
+				"cardlayout": {
+					"id": "View3",
+					"name": "view3",
+					"level" : 1
+				},
+				"masterdetail": {
+					"id": "View4",
+					"name": "view4",
+					"level" : 1
+				},
+				"pdf": {
+					"id": "View5",
+					"name": "view5",
+					"level" : 1
+				},
+				"expensemgmt": {
+					"id": "View7",
+					"name": "view7",
+					"level" : 1
+				}
 			}
-		},
-		"resources": {
-	  "css": [
-		{
-		  "uri": "css/style.css"
 		}
-	  ]
-	}
 	}
 }

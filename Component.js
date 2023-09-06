@@ -7,6 +7,12 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/core/BusyIndicator' ],
 		
 		metadata : {
 			manifest: "json"
+		},
+		
+		init : function () {
+			UIComponent.prototype.init.apply(this, arguments);
+			// Parse the current url and display the targets of the route that matches the hash
+			console.log(this.getRouter()?.initialize());
 		}
 	});
 

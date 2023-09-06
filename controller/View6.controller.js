@@ -48,7 +48,7 @@ return parseFloat(param);
 
 
 onBack:function(){
-			sap.ui.getCore().byId("myApp").back();
+			this.getOwnerComponent().getRouter().navTo('main');
 		},
 
 onScanSuccess: function(decodedText, decodedResult) {

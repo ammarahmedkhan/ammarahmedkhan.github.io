@@ -4,13 +4,16 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
 	'sap/ui/core/Fragment',
+	'sap/ui/core/format/DateFormat',
+	'sap/ui/model/Sorter',
     "../utils/utilFn"
 
-], function(MessageToast,MenuItem, Controller, JSONModel, Fragment,utilFn) {
+], function(MessageToast,MenuItem, Controller, JSONModel, Fragment,DateFormat,Sorter,utilFn) {
 
-    "use strict";
+    "use strict";	
     const todaysDate = new Date();
 	let oBinding;
+	let oTableObj;
 	let graphCalcsTotalFigures = new JSONModel({
 		toReceive:0,
 		toPay:0,
@@ -19,7 +22,7 @@ sap.ui.define([
 	});
     const oTable = new JSONModel({
         rows: [{
-            description: 'pay up/ take back',
+            description: 'pay up/take back',
             amount: 3,
             date: utilFn.formatDate(todaysDate),
             paid_or_received: true,
@@ -28,7 +31,6 @@ sap.ui.define([
             descValueState: sap.ui.core.ValueState.None
         }]
     });
-	
 	const filterSwitch = new JSONModel({showPendingSwitch : false, showPendingItems : false,
 	showToPayItems: false});
 	let aFilters = [];
@@ -38,7 +40,6 @@ sap.ui.define([
             this.getView().setModel(oTable, 'table');
             this.getView().setModel(filterSwitch, 'switch');
 			this._mDialogs = {};
-			
         },
         addExp: function() {
             oTable.oData.rows.push({
@@ -69,15 +70,17 @@ sap.ui.define([
 			if(object.mParameters.id.includes("amt")){
 				oTable.oData.rows[object.getSource().getParent().getIndex()]["amtValueState"]=valueState;	
 				oTable.oData.rows[object.getSource().getParent().getIndex()]["amount"]=
-				parseInt(object.getParameters().newValue);	
+				parseInt(object.getParameters().newValue);
+			}
+			else if(object.mParameters.id.includes("picker")){
+				oTable.oData.rows[object.getSource().getParent().getIndex()]["date"]=object.getParameters().newValue;
 			}
 			else{
 				oTable.oData.rows[object.getSource().getParent().getIndex()]["descValueState"]=valueState;			
 			}
         },
 		clearAllSortings: function(oEvent){
-			if(!oBinding)
-			{oBinding = this.getView().byId('tbl').getBinding();}
+			this.initTableBiding();
 			oBinding.sort(null);
 			const aColumns = this.getView().byId('tbl').getColumns();
 			for (let i = 0; i < aColumns.length; i++) {
@@ -85,8 +88,6 @@ sap.ui.define([
 			}
 		},
 		onFilterSelect : function(object){
-		if(!oBinding)
-		{oBinding = this.getView().byId('tbl').getBinding();}
 		if(object.getParameters().key == "charts"){
 				this.performCalc();
 			}
@@ -121,7 +122,7 @@ sap.ui.define([
 		this.doCalc('pay_or_receive',true,'toPay');
 		this.doCalc('pay_or_receive',false,'toReceive');
 		this.doCalc('paid_or_received',false,'pending');
-		this.doCalc('paid_or_received',true,'completed');		
+		this.doCalc('paid_or_received',true,'completed');
 		graphCalcsTotalFigures.refresh();
 		this.getView().setModel(graphCalcsTotalFigures, 'graphCalcsTotalFigures');		
         },
@@ -162,13 +163,11 @@ sap.ui.define([
 				});
 			}
 		},
-	
 		filterItems : function(filterOption){
-		if(!oBinding)
-		{oBinding = this.getView().byId('tbl').getBinding();}
 		if(filterOption == "")
 		{
 		const oEmptyFilter = new sap.ui.model.Filter();
+		this.initTableBiding();
 		oBinding.filter(oEmptyFilter);
 		return;
 		}
@@ -179,9 +178,68 @@ sap.ui.define([
 		}
 		oBinding.filter(aFilters);
 		},
+		initTableBiding : function(){
+		if(oBinding == null)
+		try{
+			oTableObj = this.getView().byId('tbl');
+			oBinding =  oTableObj.getBinding();
+		}catch(e){
+			//not yet initialized
+		}
+		},
+		sortDeliveryDate : function(oEvent){
+			this.initTableBiding();
+			const oCurrentColumn = oEvent.getParameter("column");
+			const oDeliveryDateColumn = this.byId("date");
+			if (oCurrentColumn != oDeliveryDateColumn) {
+				oDeliveryDateColumn.setSorted(false); //No multi-column sorting
+				return;
+			}
 
+			oEvent.preventDefault();
+
+			const sOrder = oEvent.getParameter("sortOrder");
+			const oDateFormat = DateFormat.getDateInstance({pattern: "dd/MM/yyyy"});
+
+			this._resetSortingState(); //No multi-column sorting
+			oDeliveryDateColumn.setSorted(true);
+			oDeliveryDateColumn.setSortOrder(sOrder);
+
+			const oSorter = new Sorter(oDeliveryDateColumn.getSortProperty(), sOrder === sap.ui.core.SortOrder.Descending);
+			//The date data in the JSON model is string based. For a proper sorting the compare function needs to be customized.
+			oSorter.fnCompare = function(a, b) {
+				if (b == null) {
+					return -1;
+				}
+				if (a == null) {
+					return 1;
+				}
+
+				var aa = oDateFormat.parse(a).getTime();
+				var bb = oDateFormat.parse(b).getTime();
+
+				if (aa < bb) {
+					return -1;
+				}
+				if (aa > bb) {
+					return 1;
+				}
+				return 0;
+			};
+
+			oBinding.sort(oSorter);
+
+		},
+		_resetSortingState: function() {
+			this.initTableBiding();
+			let aColumns = oTableObj.getColumns();
+			for (var i = 0; i < aColumns.length; i++) {
+				aColumns[i].setSorted(false);
+			}
+		},
+		
         onBack: function() {
-            sap.ui.getCore().byId("myApp").back();
+			this.getOwnerComponent().getRouter().navTo('main');
         }
     });
 });

@@ -28,8 +28,8 @@
 				}"
 				selectionMode="MultiToggle"
 				visibleRowCount="7"
-				sort="amount"
 				paste="onPaste"
+				sort="amount"
 				ariaLabelledBy="title">
 						<table:extension>
 							<OverflowToolbar style="Clear">
@@ -57,14 +57,14 @@
 							</table:Column>
 						</table:columns>
 						<table:columns>
-							<table:Column width="11rem" sortProperty="date" showSortMenuEntry="false">
+							<table:Column width="11rem" sortProperty="date" id="date">
 								<Label text="Due Date" />
 								<table:template>
-									<DatePicker text = "{
-								path: 'table>date',
-								type: 'sap.ui.model.type.Date',
-								formatOptions: {source: {pattern: 'dd/MM/yyyy'}, style: 'long'}
-							}"  showValueHelp="true" valueHelpOnly="true"  wrapping="true" valueLiveUpdate="true" change="changeHandler"/>
+									<DatePicker
+									text = "{
+								path: 'table>date'}
+								"
+								showValueHelp="true" valueHelpOnly="true"  wrapping="true" valueLiveUpdate="true" change="changeHandler"  showSortMenuEntry="false"/>
 								</table:template>
 							</table:Column>
 						</table:columns>

@@ -57,9 +57,7 @@ sap.ui.define([
 		},
 		
 				onBack:function(){
-
-			sap.ui.getCore().byId("myApp").back();
-
+			this.getOwnerComponent().getRouter().navTo('main');
 		},
 		
 		hexToBase64: function(str) {
