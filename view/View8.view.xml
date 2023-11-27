@@ -1,0 +1,103 @@
+<mvc:View
+	controllerName="sap.m.sample.sampleapp4.controller.View8"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar"
+	>
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false">
+
+		<semantic:titleHeading>
+			<Title text="{i18n>worklistTitle}" />
+		</semantic:titleHeading>
+
+		<semantic:content>
+			<Table
+				id="table"
+				width="auto"
+				items="{
+					path: '/Orders',
+					parameters: {'expand' : 'Employee,Customer,Order_Details'},
+					sorter: {
+						path: 'CustomerID',
+						descending: false
+					}
+				}"
+				noDataText="{worklistView>/tableNoDataText}"
+				growing="true"
+				growingScrollToLoad="true">
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+						<ToolbarSpacer />
+						<SearchField
+							id="searchField"
+							tooltip="{i18n>worklistSearchTooltip}"
+							search="onSearch"
+							width="auto">
+						</SearchField>
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="nameColumn">
+						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+					</Column>
+					<Column id="dateColumn">
+						<Text text="{i18n>tableDateColumnTitle}" id="dateColumnTitle"/>
+					</Column>
+					<Column id="employeeRespColumn">
+						<Text text="{i18n>tableEmployeeRespColumnColumnTitle}" id="EmployeeRespColumnColumnTitle"/>
+					</Column>
+					<Column id="unitNumberColumn" hAlign="End">
+						<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem
+					>
+						<cells>
+							<ObjectIdentifier
+								title="{Customer/ContactName} " text ="{CustomerID}"/>
+							<ObjectIdentifier
+								title="{
+				        path: 'OrderDate',
+				        type: 'sap.ui.model.type.Date',
+				        formatOptions: {
+				          pattern: 'dd/MM/yyyy'
+				        }
+				      }"/>
+							<Button id="btn" text="{Employee/FirstName} {Employee/LastName}"
+							press="showQuickView"/>
+								
+							<ObjectNumber
+								number="{
+									path: 'OrderID'
+								}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id ="shareTile" title="{worklistView>/saveAsTileTitle}" />
+		</semantic:saveAsTileAction>
+
+	</semantic:SemanticPage>
+
+</mvc:View>

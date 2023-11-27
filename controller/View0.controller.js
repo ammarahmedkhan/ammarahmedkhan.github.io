@@ -15,7 +15,8 @@ sap.ui.define([
 		"masterdetail":false,
 		"pdf":false,
 		"cardlayout":false,
-		"table":false
+		"table":false,
+		"worklist":false
 		});
 		
 	var sampleappController = Controller.extend("sap.m.sample.sampleapp4.controller.View0", {

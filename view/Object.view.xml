@@ -1,0 +1,109 @@
+<mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout"  xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="sap.m.sample.sampleapp4.controller.Object">
+
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
+
+		<semantic:titleHeading>
+		<VBox>
+		   <Title text=" {Customer/ContactName}"/>  
+		   <Title text="{i18n>Order_ID}: {OrderID}"  />
+		</VBox>
+		</semantic:titleHeading>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{objectView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+
+	<semantic:content>
+
+			<Table
+				id="orderDetailsTable"
+				width="auto"
+				items="{
+					path: 'Order_Details'
+				}"
+				>
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{i18n>orderDetailsTableTitle}"/>
+						<ToolbarSpacer />
+				</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="prodColumn">
+						<Text text="{i18n>tableProdColumnTitle}" id="prodColumnTitle"/>
+					</Column>
+					<Column id="unitPrice">
+						<Text text="{i18n>tableUnitPriceTitle}" id="unitPriceTitle"/>
+					</Column>
+					<Column id="qtyColumn">
+						<Text text="{i18n>tableQtyColumnTitle}" id="qtyColumnTitle"/>
+					</Column>
+					<Column id="discountColumn" hAlign="End">
+						<Text text="{i18n>tableDiscountColumnTitle}" id="discountColumnTitle"/>
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem
+
+						>
+						<cells>
+							<ObjectIdentifier
+								title="{ProductID}" />
+							<ObjectIdentifier
+								title="{UnitPrice}"/>										
+							<ObjectIdentifier
+								title="{Quantity}"/>								
+							<ObjectNumber
+								number="{
+									path: 'Discount'
+								}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+
+
+	</semantic:content>
+
+
+
+<semantic:headerContent>
+	<l:HorizontalLayout class="sapUiContentPadding" >
+	<l:VerticalLayout
+			width="100%">
+ <ObjectAttribute title="{i18n>contactName}" text="{Customer/ContactName}"/>
+ <ObjectAttribute title="{i18n>contactTitle}" text="{Customer/ContactTitle}"/>
+ <ObjectAttribute title="{i18n>phone}" text="{Customer/Phone}"/>
+	</l:VerticalLayout
+			>
+	<l:VerticalLayout
+			width="100%">
+ <ObjectAttribute title="{i18n>address}" text="{Customer/Address}"/>
+ <ObjectAttribute title="{i18n>postalCodCty}" text="{Customer/PostalCode} {Customer/City}"/>
+ <ObjectAttribute title="{i18n>country}" text="{Customer/Country}"/>
+	</l:VerticalLayout
+			>
+	<l:VerticalLayout
+			width="100%">
+ <ObjectAttribute title="{i18n>totalvalue}" />
+ <ObjectAttribute id="totalValue" text="" />
+	</l:VerticalLayout
+			>
+</l:HorizontalLayout>
+</semantic:headerContent>
+
+	</semantic:SemanticPage>
+
+</mvc:View>

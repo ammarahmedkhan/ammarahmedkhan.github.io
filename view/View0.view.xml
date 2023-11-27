@@ -50,6 +50,20 @@
 		</TileContent>
 	</GenericTile>
 	
+	<GenericTile id="t-worklist" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+	header="Worklist app"
+		subheader="Worklist app with oData ops" press="press">
+		<TileContent>
+		
+						<content>
+						<VBox>
+			<ImageContent src="sap-icon://expense-report" />
+									<BusyIndicator
+				class="sapUiSmallMarginBottom" id = "worklist" visible="{/worklist}"/>
+				</VBox>
+			</content>
+		</TileContent>
+	</GenericTile>
 	
 </Panel>
 

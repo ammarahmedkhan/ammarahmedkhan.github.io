@@ -1,6 +1,13 @@
 {
 	"sap.app": {
 		"id": "sap.m.sample.sampleapp4",
+		"i18n": "i18n/i18n.properties",
+		"dataSources": {
+			"modelalias": {
+             "uri": "https://services.odata.org/v2/northwind/northwind.svc/" , 
+			 "type": "OData" 
+         }
+		},
 		"i18n": {
 			"bundleUrl": "i18n/i18n.properties",
 			"supportedLocales": [
@@ -26,7 +33,19 @@
 			"type": "XML",
 			"async": true,
 			"id": "app"
-		},		
+		},
+    "models": {
+            "mymodel": {
+                "preload": true,
+                "dataSource": "modelalias"
+            },
+			"i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.m.sample.sampleapp4.i18n.i18n"
+                }
+            }
+        },
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
@@ -78,7 +97,19 @@
 				"pattern": "pdf",
 				"name": "pdf",
 				"target": "pdf"
-			}
+			},
+			{
+				"pattern": "worklist",
+				"name": "worklist",
+				"target": "worklist"
+			},
+			{
+				"pattern": "Orders/{objectId}",
+				"name": "object",
+				"target": [
+					"object"
+				]
+            }
 			],
 			"targets": {
 				"main": {
@@ -120,7 +151,18 @@
 					"id": "View7",
 					"name": "view7",
 					"level" : 1
-				}
+				},
+				"worklist": {
+					"id": "View8",
+					"name": "view8",
+					"level" : 1
+				},
+				"object": {
+                    "viewName": "Object",
+                    "viewId": "object",
+                    "viewLevel": 2,
+                    "title": "{i18n>objectViewTitle}"
+                }			
 			}
 		}
 	}
