@@ -49,7 +49,7 @@
 			</content>
 		</TileContent>
 	</GenericTile>
-	
+		<!--
 	<GenericTile id="t-worklist" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Worklist app"
 		subheader="Worklist app with oData ops" press="press">
@@ -64,7 +64,7 @@
 			</content>
 		</TileContent>
 	</GenericTile>
-	
+	-->
 </Panel>
 
 	<Panel headerText="Basic UI demos" expandable="true" expanded="true">
@@ -129,7 +129,7 @@
 		</TileContent>
 		
 	</GenericTile>
-	
+
 
 			<GenericTile id="t-table" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
 	header="Fiori Table"
@@ -145,6 +145,8 @@
 
 		</TileContent>
 	</GenericTile>
+	
+	
 	</Panel>
 	</Page>
 </mvc:View>
