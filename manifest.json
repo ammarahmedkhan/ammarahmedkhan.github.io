@@ -114,42 +114,42 @@
 			"targets": {
 				"main": {
 					"id": "View0",
-					"name": "view0",
+					"name": "View0",
 					"level" : 0
 				},
 				"qr": {
 					"id": "View6",
-					"name": "view6",
+					"name": "View6",
 					"level" : 1
 				},
 				"todo": {
 					"id": "View1",
-					"name": "view1",
+					"name": "View1",
 					"level" : 1
 				},
 				"table": {
 					"id": "View2",
-					"name": "view2",
+					"name": "View2",
 					"level" : 1
 				},
 				"cardlayout": {
 					"id": "View3",
-					"name": "view3",
+					"name": "View3",
 					"level" : 1
 				},
 				"masterdetail": {
 					"id": "View4",
-					"name": "view4",
+					"name": "View4",
 					"level" : 1
 				},
 				"pdf": {
 					"id": "View5",
-					"name": "view5",
+					"name": "View5",
 					"level" : 1
 				},
 				"expensemgmt": {
 					"id": "View7",
-					"name": "view7",
+					"name": "View7",
 					"level" : 1
 				},
 				"worklist": {
